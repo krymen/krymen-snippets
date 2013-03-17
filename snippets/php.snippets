@@ -1,0 +1,64 @@
+snippet at
+        ${1:protected} $${2:attr};${3}
+snippet cls
+        <?php
+
+        namespace `substitute(substitute(substitute(expand("%:p"), '\v(.*\/\l+)((\/\u\w+)+)\/\u\w+.php$', '\2', ''), '\/', '\\', 'g'), '^\\', '', '')`;
+
+        /**
+         * ${1:`Filename('', 'MyInterface')`}
+         *
+         * @author ${2:`g:snips_author`}
+         */
+        class ${3:`Filename('', 'MyInterface')`}
+        {
+            ${4}
+        }
+snippet enum
+        <?php
+
+        namespace `substitute(substitute(substitute(expand("%:p"), '\v(.*\/\l+)((\/\u\w+)+)\/\u\w+.php$', '\2', ''), '\/', '\\', 'g'), '^\\', '', '')`;
+
+        use NetTeam\DDD\Enum;
+
+        /**
+         * ${1:`Filename('', 'MyInterface')`}
+         *
+         * @author ${2:`g:snips_author`}
+         */
+        class ${3:`Filename('', 'MyInterface')`} extends Enum
+        {
+            const ${4}
+        }
+snippet int
+        <?php
+
+        namespace `substitute(substitute(substitute(expand("%:p"), '\v(.*\/\l+)((\/\u\w+)+)\/\u\w+.php$', '\2', ''), '\/', '\\', 'g'), '^\\', '', '')`;
+
+        /**
+         * ${1:`Filename('', 'MyInterface')`}
+         *
+         * @author ${2:`g:snips_author`}
+         */
+        interface ${3:`Filename('', 'MyInterface')`}
+        {
+            ${4}
+        }
+snippet tcls
+        <?php
+
+        namespace `substitute(substitute(substitute(expand("%:p"), '\v(.*\/\l+)((\/\u\w+)+)\/\u\w+.php$', '\2', ''), '\/', '\\', 'g'), '^\\', '', '')`;
+
+        use `substitute(substitute(substitute(substitute(expand("%:p"), '\v(.*\/\l+)((\/\u\w+)+)\/\u\w+.php$', '\2', ''), '\/', '\\', 'g'), '^\\', '', ''), '\vTests?\\', '', 'g').'\'.substitute(Filename('', 'myClass'), 'Test$', '', '')`;
+
+        /**
+         * ${1:`Filename('', 'myTestCase')`}
+         *
+         * @author ${2:`g:snips_author`}
+         *
+         * @group Unit
+         */
+        class ${3:`Filename('', 'myTestCase')`} extends ${4:\PHPUnit_Framework_TestCase}
+        {
+            ${5}
+        }
